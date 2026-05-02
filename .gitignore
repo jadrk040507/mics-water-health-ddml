@@ -1,0 +1,39 @@
+# ── Raw data (too large for Git) ──
+data/*.dta
+*.dta
+
+# ── Compiled outputs (regenerate via R) ──
+main.pdf
+main.dvi
+main_full.pdf
+main.aux
+main.log
+main.out
+main.synctex.gz
+Rplots.pdf
+*.pdf
+
+# ── R session files ──
+.Rproj.user/
+.Rhistory
+.RData
+.Rapp.history
+
+# ── Checkpoints (hundreds of .rds — regenerate as needed) ──
+Output/checkpoints/
+
+# ── LaTeX aux ──
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+
+# ── Heavy EPS figures ──
+Figure/*.eps
+Figure/*-eps-converted-to.pdf
+
+# ── OS ──
+.DS_Store
+Thumbs.db

@@ -1,0 +1,44 @@
+\begin{table}[htbp]
+\centering
+\caption{Effect of Boiling on Health Outcomes --- No Source Risk (RiskSource = 0)}
+\label{tab:subgroup_risk0}
+\begin{tabular}{lccccccc}
+\toprule
+ & OLS & Lasso & Ridge & ENet & RF & XGB & Stacked \\
+\midrule
+\multicolumn{8}{l}{\textbf{Panel A: Child Diarrhea}} \\
+\midrule
+Coefficient & -39191187.9429 & -0.0253 & -0.0419** & -0.0285 & -0.0730 & 0.0083 & -0.0517*** \\
+ & (104545067.6835) & (0.0290) & (0.0141) & (0.0240) & (0.0984) & (0.1048) & (0.0115) \\
+Weight $(g)$ &  & 0.36 & 0.38 & 0.18 & 0.07 & 0.01 & --- \\
+Weight $(m)$ &  & 0.29 & 0.06 & 0.52 & 0.09 & 0.04 & --- \\
+
+\multicolumn{8}{l}{\textbf{Panel B: Any Detectable E.coli at Home}} \\
+\midrule
+Coefficient & 3773.9770 & -0.1503*** & -0.1564*** & -0.1536*** & -0.0619 & -0.0542 & -0.1523*** \\
+ & (3774.3169) & (0.0155) & (0.0103) & (0.0139) & (0.0427) & (0.0608) & (0.0095) \\
+Weight $(g)$ &  & 0.22 & 0.28 & 0.22 & 0.15 & 0.12 & --- \\
+Weight $(m)$ &  & 0.29 & 0.15 & 0.47 & 0.06 & 0.02 & --- \\
+
+\multicolumn{8}{l}{\textbf{Panel C: Very High E.coli at Home}} \\
+\midrule
+Coefficient & -1227.0825 & -0.0547*** & -0.0665*** & -0.0578*** & 0.0337 & 0.0188 & -0.0711*** \\
+ & (873.4572) & (0.0108) & (0.0072) & (0.0101) & (0.0598) & (0.0533) & (0.0059) \\
+Weight $(g)$ &  & 0.11 & 0.24 & 0.23 & 0.21 & 0.21 & --- \\
+Weight $(m)$ &  & 0.29 & 0.15 & 0.47 & 0.06 & 0.02 & --- \\
+
+\midrule
+Observations (diarrhea) & \multicolumn{7}{c}{9,248} \\
+Observations (E.coli) & \multicolumn{7}{c}{25,511} \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} DoubleML IRM estimates for boiling treatment in subsample defined by RiskSource. 
+5-fold cross-validation, 2 repetitions. Standard errors in parentheses. 
+Controls: wealth quintiles, education, urban, sanitation, water source FE, country FE. 
+OLS estimates may be unreliable due to quasi-complete separation in subsamples. 
+Stacked weights are normalized absolute coefficients from the ridge meta-learner. 
+$^{***}p<0.001$, $^{**}p<0.01$, $^{*}p<0.05$, $^{.}p<0.1$
+\end{minipage}
+\end{table}

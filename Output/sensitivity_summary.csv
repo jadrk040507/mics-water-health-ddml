@@ -1,0 +1,4 @@
+outcome,treatment,learner,theta_dml,se_dml,t_stat,theta_ols,se_ols,r2_partial,r2_full,rv_baseline
+diarrhea,treat_boil,stacked,-0.0446680537574409,0.00868378904237549,-5.14384372299557,,,,,0.854815367124288
+very_high_risk_home,treat_boil,stacked,-0.105832720046325,0.0062838542129388,-16.8420075418696,,,,,0.986457199931548
+some_risk_home,treat_boil,stacked,-0.0440333004938504,0.0075133124395009,-5.86070403013554,,,,,0.888160143143163

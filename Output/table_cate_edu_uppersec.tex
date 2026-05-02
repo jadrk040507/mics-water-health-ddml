@@ -1,0 +1,31 @@
+\begin{table}[htbp]
+\centering
+\caption{Effect of Boiling on E.coli Outcomes --- Education: Upper Secondary}
+\label{tab:cate_edu3}
+\begin{tabular}{lccccccc}
+\toprule
+ & OLS & Lasso & Ridge & ENet & RF & XGB & Stacked \\
+\midrule
+\multicolumn{8}{l}{\textbf{Panel A: Any Detectable E.coli at Home}} \\
+\midrule
+Coefficient & 22245.5778 & -0.0961*** & -0.1081*** & -0.1043*** & -0.0499 & -0.0163 & -0.1077*** \\
+ & (19272.6770) & (0.0235) & (0.0194) & (0.0214) & (0.0421) & (0.0847) & (0.0171) \\
+
+\multicolumn{8}{l}{\textbf{Panel B: Very High E.coli at Home}} \\
+\midrule
+Coefficient & 9000.7254 & -0.0993*** & -0.1056*** & -0.1030*** & -0.1096*** & -0.0541 & -0.1042*** \\
+ & (11164.0733) & (0.0149) & (0.0123) & (0.0134) & (0.0240) & (0.0602) & (0.0107) \\
+
+\midrule
+Observations & \multicolumn{7}{c}{7,771} \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} DoubleML IRM estimates for boiling treatment in subsample defined by household head education. 
+5-fold cross-validation, 2 repetitions. Standard errors in parentheses. 
+Controls: wealth quintiles, urban, sanitation, water source FE, country FE (education excluded as subgroup var). 
+OLS estimates may be unreliable due to quasi-complete separation. 
+$^{***}p<0.001$, $^{**}p<0.01$, $^{*}p<0.05$, $^{.}p<0.1$
+\end{minipage}
+\end{table}

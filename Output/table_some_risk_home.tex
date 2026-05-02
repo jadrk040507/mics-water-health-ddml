@@ -1,0 +1,62 @@
+\begin{table}[htbp]
+\centering
+\caption{Effect of Water Treatment on Any Detectable E.coli at Home ($WQ26>0$)}
+\label{tab:some_risk_home_full}
+\begin{tabular}{lccccccc}
+\toprule
+ & OLS & Lasso & Ridge & ENet & RF & XGB & Stacked \\
+\midrule
+\multicolumn{8}{l}{\textbf{Panel A: Any Treatment}} \\
+\midrule
+Coefficient & -0.0190. & -0.0183* & -0.0174** & -0.0186* & -0.0109 & -0.0116 & -0.0134* \\
+ & (0.0101) & (0.0078) & (0.0064) & (0.0075) & (0.0084) & (0.0106) & (0.0061) \\
+Weight $(g)$ & 0.07 & 0.11 & 0.35 & 0.23 & 0.13 & 0.11 & — \\
+Weight $(m)$ & 0.17 & 0.06 & 0.27 & 0.24 & 0.10 & 0.16 & — \\
+
+\multicolumn{8}{l}{\textbf{Panel B: Boil (vs Control)}} \\
+\midrule
+Coefficient & --- & -0.0438*** & -0.0458*** & -0.0510*** & 0.0060 & 0.0021 & -0.0440*** \\
+ &  & (0.0130) & (0.0080) & (0.0115) & (0.0243) & (0.0298) & (0.0075) \\
+Weight $(g)$ &  & 0.22 & 0.28 & 0.22 & 0.15 & 0.12 & — \\
+Weight $(m)$ &  & 0.29 & 0.15 & 0.47 & 0.06 & 0.02 & — \\
+
+\multicolumn{8}{l}{\textbf{Panel C: Chlorine (vs Control)}} \\
+\midrule
+Coefficient & --- & 0.0144 & 0.0205 & 0.0148 & 0.0381 & 0.0983. & 0.0240* \\
+ &  & (0.0268) & (0.0156) & (0.0220) & (0.0573) & (0.0563) & (0.0119) \\
+Weight $(g)$ &  & 0.23 & 0.27 & 0.24 & 0.14 & 0.12 & — \\
+Weight $(m)$ &  & 0.26 & 0.32 & 0.24 & 0.11 & 0.08 & — \\
+
+\multicolumn{8}{l}{\textbf{Panel D: Filter (vs Control)}} \\
+\midrule
+Coefficient & --- & 0.0347* & 0.0515*** & 0.0379** & 0.0048 & 0.0007 & 0.0624*** \\
+ &  & (0.0145) & (0.0109) & (0.0138) & (0.0342) & (0.0411) & (0.0104) \\
+Weight $(g)$ &  & 0.24 & 0.24 & 0.24 & 0.15 & 0.13 & — \\
+Weight $(m)$ &  & 0.27 & 0.29 & 0.18 & 0.24 & 0.03 & — \\
+
+\multicolumn{8}{l}{\textbf{Panel E: Other (vs Control)}} \\
+\midrule
+Coefficient & --- & 0.0114 & 0.0089 & 0.0112 & 0.2059 & 0.1468 & 0.0100 \\
+ &  & (0.0231) & (0.0158) & (0.0197) & (0.1869) & (0.1037) & (0.0096) \\
+Weight $(g)$ &  & 0.23 & 0.26 & 0.24 & 0.15 & 0.12 & — \\
+Weight $(m)$ &  & 0.11 & 0.63 & 0.19 & 0.07 & 0.00 & — \\
+
+\midrule
+Observations & \multicolumn{7}{c}{59,620} \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} DoubleML IRM estimates with 5-fold cross-validation, 2 repetitions. 
+Standard errors in parentheses. 
+Controls: wealth quintiles, education, urban, sanitation, water source FE, country FE. 
+Source E.coli not included (potential mediator for home E.coli). 
+OLS estimates (---) excluded from specific treatment panels due to quasi-complete separation: 
+country fixed effects perfectly predict zero treatment in several countries (e.g., Benin and Central African Republic have 0\% boil rate), 
+causing infinite MLE in the logistic propensity model and rank-deficient fits in the outcome model. 
+Regularized learners (Lasso, Ridge, ENet) are unaffected as penalties prevent coefficient divergence. 
+Stacked ensemble for specific treatments uses only 5 base learners (Lasso, Ridge, ENet, RF, XGB) to avoid OLS contamination. 
+Stacked weights are normalized absolute coefficients from the ridge meta-learner. 
+$^{***}p<0.001$, $^{**}p<0.01$, $^{*}p<0.05$, $^{.}p<0.1$
+\end{minipage}
+\end{table}
